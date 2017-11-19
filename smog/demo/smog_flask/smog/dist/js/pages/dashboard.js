@@ -1,0 +1,1 @@
+/home/wuming/smog_flask/smog/dist/js/pages/dashboard.js

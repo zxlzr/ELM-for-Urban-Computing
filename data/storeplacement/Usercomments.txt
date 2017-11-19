@@ -1,0 +1,3 @@
+Userid	OverallSatisfaction	ServiceQuality	EnvironmentClass	ConsumptionCost	Comments	Time	Location
+a15113	3	5	5	5	咖啡不错	18:31 7/12/2015	星巴克(杭州嘉华店)	
+b35421	3	1	2	5	人太多了	11:12 5/12/2015	星巴克(杭州嘉华店)						 

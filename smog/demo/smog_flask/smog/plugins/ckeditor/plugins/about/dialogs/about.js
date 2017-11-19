@@ -1,0 +1,1 @@
+/home/wuming/smog_flask/smog/plugins/ckeditor/plugins/about/dialogs/about.js

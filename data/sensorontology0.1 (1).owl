@@ -1,0 +1,1155 @@
+@prefix : <http://smog.locigraph.cn/ontologies/2016/6/sensor#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://openkg.cn/schema/waterlogging> .
+
+<http://openkg.cn/schema/waterlogging> rdf:type owl:Ontology ;
+                                       
+                                       rdfs:comment "This ontology aims at modeling  urban waterlogging" .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://openkg.cn/schema/waterlogging#hasCity
+
+<http://openkg.cn/schema/waterlogging#hasCity> rdf:type owl:ObjectProperty ;
+                                               
+                                               rdfs:label "有所在城市" ;
+                                               
+                                               rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasDayOfWeek
+
+<http://openkg.cn/schema/waterlogging#hasDayOfWeek> rdf:type owl:ObjectProperty ;
+                                                    
+                                                    rdfs:label "有一周中的某天" ;
+                                                    
+                                                    rdfs:range <http://openkg.cn/schema/waterlogging#DayOfWeek> ;
+                                                    
+                                                    rdfs:domain <http://openkg.cn/schema/waterlogging#Waterlogging> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasHourOfDay
+
+<http://openkg.cn/schema/waterlogging#hasHourOfDay> rdf:type owl:ObjectProperty ;
+                                                    
+                                                    rdfs:label "有一天中的某小时" ;
+                                                    
+                                                    rdfs:range <http://openkg.cn/schema/waterlogging#HourOfDay> ;
+                                                    
+                                                    rdfs:domain <http://openkg.cn/schema/waterlogging#Waterlogging> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasMeteorology
+
+<http://openkg.cn/schema/waterlogging#hasMeteorology> rdf:type owl:FunctionalProperty ,
+                                                               owl:ObjectProperty ;
+                                                      
+                                                      rdfs:label "有气象条件" ;
+                                                      
+                                                      rdfs:domain <http://openkg.cn/schema/waterlogging#Waterlogging> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasPrecipitation
+
+<http://openkg.cn/schema/waterlogging#hasPrecipitation> rdf:type owl:ObjectProperty ;
+                                                        
+                                                        rdfs:label "有降水量" ;
+                                                        
+                                                        rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasSensorLocation
+
+<http://openkg.cn/schema/waterlogging#hasSensorLocation> rdf:type owl:ObjectProperty ;
+                                                         
+                                                         rdfs:label "有观测点" ;
+                                                         
+                                                         rdfs:domain <http://openkg.cn/schema/waterlogging#Waterlogging> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasSeverity
+
+<http://openkg.cn/schema/waterlogging#hasSeverity> rdf:type owl:ObjectProperty ;
+                                                   
+                                                   rdfs:label "有严重程度" .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasTerrain
+
+<http://openkg.cn/schema/waterlogging#hasTerrain> rdf:type owl:ObjectProperty ;
+                                                  
+                                                  rdfs:label "有地势" ;
+                                                  
+                                                  rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasTraffic
+
+<http://openkg.cn/schema/waterlogging#hasTraffic> rdf:type owl:ObjectProperty ;
+                                                  
+                                                  rdfs:label "有交通状况" .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasWaterloggingOccuranceLocation
+
+<http://openkg.cn/schema/waterlogging#hasWaterloggingOccuranceLocation> rdf:type owl:ObjectProperty ;
+                                                                        
+                                                                        rdfs:label "有地点" .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasWeatherType
+
+<http://openkg.cn/schema/waterlogging#hasWeatherType> rdf:type owl:ObjectProperty ;
+                                                      
+                                                      rdfs:label "有天气" .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://openkg.cn/schema/waterlogging#hasDayValue
+
+<http://openkg.cn/schema/waterlogging#hasDayValue> rdf:type owl:DatatypeProperty ;
+                                                   
+                                                   rdfs:label "第几天值" ;
+                                                   
+                                                   rdfs:domain <http://openkg.cn/schema/waterlogging#DayOfWeek> ;
+                                                   
+                                                   rdfs:range xsd:int .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasHourValue
+
+<http://openkg.cn/schema/waterlogging#hasHourValue> rdf:type owl:DatatypeProperty ;
+                                                    
+                                                    rdfs:label "第几小时值" ;
+                                                    
+                                                    rdfs:domain <http://openkg.cn/schema/waterlogging#HourOfDay> ;
+                                                    
+                                                    rdfs:range xsd:int .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasLatValue
+
+<http://openkg.cn/schema/waterlogging#hasLatValue> rdf:type owl:DatatypeProperty ;
+                                                   
+                                                   rdfs:label "有纬度值" ;
+                                                   
+                                                   rdfs:range xsd:double .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasLocationCityValue
+
+<http://openkg.cn/schema/waterlogging#hasLocationCityValue> rdf:type owl:DatatypeProperty ;
+                                                            
+                                                            rdfs:label "有所处城市值" ;
+                                                            
+                                                            rdfs:range xsd:string .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasLonValue
+
+<http://openkg.cn/schema/waterlogging#hasLonValue> rdf:type owl:DatatypeProperty ;
+                                                   
+                                                   rdfs:label "有经度值" ;
+                                                   
+                                                   rdfs:range xsd:double .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasPictureUrl
+
+<http://openkg.cn/schema/waterlogging#hasPictureUrl> rdf:type owl:DatatypeProperty ;
+                                                     
+                                                     rdfs:label "有描述图片链接"^^xsd:string ;
+                                                     
+                                                     rdfs:range xsd:string .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasPrecipitationValue
+
+<http://openkg.cn/schema/waterlogging#hasPrecipitationValue> rdf:type owl:DatatypeProperty ;
+                                                             
+                                                             rdfs:label "有降水量值"^^xsd:int .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasSeverity
+
+<http://openkg.cn/schema/waterlogging#hasSeverity> rdf:type owl:DatatypeProperty ;
+                                                   
+                                                   rdfs:label "有严重程度" ;
+                                                   
+                                                   rdfs:range xsd:int .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasTerrainValue
+
+<http://openkg.cn/schema/waterlogging#hasTerrainValue> rdf:type owl:DatatypeProperty ;
+                                                       
+                                                       rdfs:label "有地势值"^^xsd:int ;
+                                                       
+                                                       rdfs:range xsd:int .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasTrafficValue
+
+<http://openkg.cn/schema/waterlogging#hasTrafficValue> rdf:type owl:DatatypeProperty ;
+                                                       
+                                                       rdfs:label "有交通状态值"^^xsd:int ;
+                                                       
+                                                       rdfs:range xsd:int .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasWaterloggingLocation
+
+<http://openkg.cn/schema/waterlogging#hasWaterloggingLocation> rdf:type owl:DatatypeProperty ;
+                                                               
+                                                               rdfs:label "有内涝地点"^^xsd:string ;
+                                                               
+                                                               rdfs:range xsd:string .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasWaterloggingTime
+
+<http://openkg.cn/schema/waterlogging#hasWaterloggingTime> rdf:type owl:DatatypeProperty ;
+                                                           
+                                                           rdfs:label "有内涝时间"^^xsd:dateTime ;
+                                                           
+                                                           rdfs:range xsd:dateTime .
+
+
+
+###  http://openkg.cn/schema/waterlogging#hasWeiboText
+
+<http://openkg.cn/schema/waterlogging#hasWeiboText> rdf:type owl:DatatypeProperty ;
+                                                    
+                                                    rdfs:label "有微博描述值"^^xsd:string ;
+                                                    
+                                                    rdfs:range xsd:string .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://openkg.cn/schema/waterlogging#Beijing
+
+<http://openkg.cn/schema/waterlogging#Beijing> rdf:type owl:Class ;
+                                               
+                                               rdfs:label "北京" ;
+                                               
+                                               rdfs:subClassOf <http://openkg.cn/schema/waterlogging#PlaceOfOccurrence> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Chengdu
+
+<http://openkg.cn/schema/waterlogging#Chengdu> rdf:type owl:Class ;
+                                               
+                                               rdfs:label "成都" ;
+                                               
+                                               rdfs:subClassOf <http://openkg.cn/schema/waterlogging#PlaceOfOccurrence> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#DayOfWeek
+
+<http://openkg.cn/schema/waterlogging#DayOfWeek> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:label "一周中的某天" ;
+                                                 
+                                                 rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Time> ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <http://openkg.cn/schema/waterlogging#hasDayValue> ;
+                                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                   owl:onDataRange xsd:int
+                                                                 ] .
+
+
+
+###  http://openkg.cn/schema/waterlogging#EveningRushHour
+
+<http://openkg.cn/schema/waterlogging#EveningRushHour> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:label "晚高峰时段" ;
+                                                       
+                                                       owl:equivalentClass [ rdf:type owl:Class ;
+                                                                             owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#HourOfDay>
+                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                    owl:onProperty <http://openkg.cn/schema/waterlogging#hasHourValue> ;
+                                                                                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                    owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                                      owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                                             owl:onDatatype xsd:int ;
+                                                                                                                                             owl:withRestrictions ( [ xsd:minInclusive "17"^^xsd:int
+                                                                                                                                                                    ]
+                                                                                                                                                                  )
+                                                                                                                                           ]
+                                                                                                                                           [ rdf:type rdfs:Datatype ;
+                                                                                                                                             owl:onDatatype xsd:int ;
+                                                                                                                                             owl:withRestrictions ( [ xsd:maxExclusive "20"^^xsd:int
+                                                                                                                                                                    ]
+                                                                                                                                                                  )
+                                                                                                                                           ]
+                                                                                                                                         )
+                                                                                                                    ]
+                                                                                                  ]
+                                                                                                )
+                                                                           ] .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Event
+
+<http://openkg.cn/schema/waterlogging#Event> rdf:type owl:Class ;
+                                             
+                                             rdfs:label "事件" .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Flatground
+
+<http://openkg.cn/schema/waterlogging#Flatground> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:label "平地" ;
+                                                  
+                                                  owl:equivalentClass [ rdf:type owl:Class ;
+                                                                        owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#Terrain>
+                                                                                             [ rdf:type owl:Restriction ;
+                                                                                               owl:onProperty <http://openkg.cn/schema/waterlogging#hasTerrainValue> ;
+                                                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                               owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                                 owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                                        owl:onDatatype xsd:int ;
+                                                                                                                                        owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:int
+                                                                                                                                                               ]
+                                                                                                                                                             )
+                                                                                                                                      ]
+                                                                                                                                      [ rdf:type rdfs:Datatype ;
+                                                                                                                                        owl:onDatatype xsd:int ;
+                                                                                                                                        owl:withRestrictions ( [ xsd:maxInclusive "0"^^xsd:int
+                                                                                                                                                               ]
+                                                                                                                                                             )
+                                                                                                                                      ]
+                                                                                                                                    )
+                                                                                                               ]
+                                                                                             ]
+                                                                                           )
+                                                                      ] ;
+                                                  
+                                                  rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Terrain> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Guangzhou
+
+<http://openkg.cn/schema/waterlogging#Guangzhou> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:label "广州" ;
+                                                 
+                                                 rdfs:subClassOf <http://openkg.cn/schema/waterlogging#PlaceOfOccurrence> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Hangzhou
+
+<http://openkg.cn/schema/waterlogging#Hangzhou> rdf:type owl:Class ;
+                                                
+                                                rdfs:label "杭州" ;
+                                                
+                                                rdfs:subClassOf <http://openkg.cn/schema/waterlogging#PlaceOfOccurrence> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#HeavyRain
+
+<http://openkg.cn/schema/waterlogging#HeavyRain> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:label "大雨"^^xsd:int ;
+                                                 
+                                                 owl:equivalentClass [ rdf:type owl:Class ;
+                                                                       owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#Precipitation>
+                                                                                            [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty <http://openkg.cn/schema/waterlogging#hasPrecipitationValue> ;
+                                                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                              owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                                owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                                       owl:onDatatype xsd:int ;
+                                                                                                                                       owl:withRestrictions ( [ xsd:minInclusive "110"^^xsd:int
+                                                                                                                                                              ]
+                                                                                                                                                            )
+                                                                                                                                     ]
+                                                                                                                                     [ rdf:type rdfs:Datatype ;
+                                                                                                                                       owl:onDatatype xsd:int ;
+                                                                                                                                       owl:withRestrictions ( [ xsd:maxInclusive "200"^^xsd:int
+                                                                                                                                                              ]
+                                                                                                                                                            )
+                                                                                                                                     ]
+                                                                                                                                   )
+                                                                                                              ]
+                                                                                            ]
+                                                                                          )
+                                                                     ] ;
+                                                 
+                                                 rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Precipitation> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Highland
+
+<http://openkg.cn/schema/waterlogging#Highland> rdf:type owl:Class ;
+                                                
+                                                rdfs:label "高地" ;
+                                                
+                                                owl:equivalentClass [ rdf:type owl:Class ;
+                                                                      owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#Terrain>
+                                                                                           [ rdf:type owl:Restriction ;
+                                                                                             owl:onProperty <http://openkg.cn/schema/waterlogging#hasTerrainValue> ;
+                                                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                             owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                               owl:onDatatype xsd:int ;
+                                                                                                               owl:withRestrictions ( [ xsd:minExclusive "0"^^xsd:int
+                                                                                                                                      ]
+                                                                                                                                    )
+                                                                                                             ]
+                                                                                           ]
+                                                                                         )
+                                                                    ] ;
+                                                
+                                                rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Terrain> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#HourOfDay
+
+<http://openkg.cn/schema/waterlogging#HourOfDay> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:label "一天中的某小时" ;
+                                                 
+                                                 rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Time> ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <http://openkg.cn/schema/waterlogging#hasHourValue> ;
+                                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                   owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                     owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                            owl:onDatatype xsd:int ;
+                                                                                                            owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:int
+                                                                                                                                   ]
+                                                                                                                                 )
+                                                                                                          ]
+                                                                                                          [ rdf:type rdfs:Datatype ;
+                                                                                                            owl:onDatatype xsd:int ;
+                                                                                                            owl:withRestrictions ( [ xsd:maxExclusive "24"^^xsd:int
+                                                                                                                                   ]
+                                                                                                                                 )
+                                                                                                          ]
+                                                                                                        )
+                                                                                   ]
+                                                                 ] .
+
+
+
+###  http://openkg.cn/schema/waterlogging#LightRain
+
+<http://openkg.cn/schema/waterlogging#LightRain> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:label "小雨"^^xsd:int ;
+                                                 
+                                                 owl:equivalentClass [ rdf:type owl:Class ;
+                                                                       owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#Precipitation>
+                                                                                            [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty <http://openkg.cn/schema/waterlogging#hasPrecipitationValue> ;
+                                                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                              owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                                owl:onDatatype xsd:int ;
+                                                                                                                owl:withRestrictions ( [ xsd:maxInclusive "30"^^xsd:int
+                                                                                                                                       ]
+                                                                                                                                     )
+                                                                                                              ]
+                                                                                            ]
+                                                                                          )
+                                                                     ] ;
+                                                 
+                                                 rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Precipitation> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Location
+
+<http://openkg.cn/schema/waterlogging#Location> rdf:type owl:Class ;
+                                                
+                                                rdfs:label "地点" .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Lowland
+
+<http://openkg.cn/schema/waterlogging#Lowland> rdf:type owl:Class ;
+                                               
+                                               rdfs:label "洼地" ;
+                                               
+                                               owl:equivalentClass [ rdf:type owl:Class ;
+                                                                     owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#Terrain>
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty <http://openkg.cn/schema/waterlogging#hasTerrainValue> ;
+                                                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                            owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                              owl:onDatatype xsd:int ;
+                                                                                                              owl:withRestrictions ( [ xsd:maxExclusive "0"^^xsd:int
+                                                                                                                                     ]
+                                                                                                                                   )
+                                                                                                            ]
+                                                                                          ]
+                                                                                        )
+                                                                   ] ;
+                                               
+                                               rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Terrain> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Middle
+
+<http://openkg.cn/schema/waterlogging#Middle> rdf:type owl:Class ;
+                                              
+                                              rdfs:label "轻微"^^xsd:int ;
+                                              
+                                              owl:equivalentClass [ rdf:type owl:Class ;
+                                                                    owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#Severity>
+                                                                                         [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty <http://openkg.cn/schema/waterlogging#hasSeverity> ;
+                                                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                           owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                             owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                                                    owl:withRestrictions ( [ xsd:minInclusive "1"^^xsd:int
+                                                                                                                                                           ]
+                                                                                                                                                         )
+                                                                                                                                  ]
+                                                                                                                                  [ rdf:type rdfs:Datatype ;
+                                                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                                                    owl:withRestrictions ( [ xsd:maxInclusive "1"^^xsd:int
+                                                                                                                                                           ]
+                                                                                                                                                         )
+                                                                                                                                  ]
+                                                                                                                                )
+                                                                                                           ]
+                                                                                         ]
+                                                                                       )
+                                                                  ] ;
+                                              
+                                              rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Severity> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#ModerateRain
+
+<http://openkg.cn/schema/waterlogging#ModerateRain> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:label "中雨"^^xsd:int ;
+                                                    
+                                                    owl:equivalentClass [ rdf:type owl:Class ;
+                                                                          owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#Precipitation>
+                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                 owl:onProperty <http://openkg.cn/schema/waterlogging#hasPrecipitationValue> ;
+                                                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                 owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                                   owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                                          owl:onDatatype xsd:int ;
+                                                                                                                                          owl:withRestrictions ( [ xsd:minInclusive "30"^^xsd:int
+                                                                                                                                                                 ]
+                                                                                                                                                               )
+                                                                                                                                        ]
+                                                                                                                                        [ rdf:type rdfs:Datatype ;
+                                                                                                                                          owl:onDatatype xsd:int ;
+                                                                                                                                          owl:withRestrictions ( [ xsd:maxInclusive "110"^^xsd:int
+                                                                                                                                                                 ]
+                                                                                                                                                               )
+                                                                                                                                        ]
+                                                                                                                                      )
+                                                                                                                 ]
+                                                                                               ]
+                                                                                             )
+                                                                        ] ;
+                                                    
+                                                    rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Precipitation> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#MorningRushHour
+
+<http://openkg.cn/schema/waterlogging#MorningRushHour> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:label "早高峰时段" ;
+                                                       
+                                                       owl:equivalentClass [ rdf:type owl:Class ;
+                                                                             owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#HourOfDay>
+                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                    owl:onProperty <http://openkg.cn/schema/waterlogging#hasHourValue> ;
+                                                                                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                    owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                                      owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                                             owl:onDatatype xsd:int ;
+                                                                                                                                             owl:withRestrictions ( [ xsd:minInclusive "7"^^xsd:int
+                                                                                                                                                                    ]
+                                                                                                                                                                  )
+                                                                                                                                           ]
+                                                                                                                                           [ rdf:type rdfs:Datatype ;
+                                                                                                                                             owl:onDatatype xsd:int ;
+                                                                                                                                             owl:withRestrictions ( [ xsd:maxExclusive "9"^^xsd:int
+                                                                                                                                                                    ]
+                                                                                                                                                                  )
+                                                                                                                                           ]
+                                                                                                                                         )
+                                                                                                                    ]
+                                                                                                  ]
+                                                                                                )
+                                                                           ] .
+
+
+
+###  http://openkg.cn/schema/waterlogging#NoneRushHour
+
+<http://openkg.cn/schema/waterlogging#NoneRushHour> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:label "非高峰时段" ;
+                                                    
+                                                    owl:equivalentClass [ rdf:type owl:Class ;
+                                                                          owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#HourOfDay>
+                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                 owl:onProperty <http://openkg.cn/schema/waterlogging#hasHourValue> ;
+                                                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                 owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                                   owl:unionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                                   owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                                                          owl:onDatatype xsd:int ;
+                                                                                                                                                          owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:int
+                                                                                                                                                                                 ]
+                                                                                                                                                                               )
+                                                                                                                                                        ]
+                                                                                                                                                        [ rdf:type rdfs:Datatype ;
+                                                                                                                                                          owl:onDatatype xsd:int ;
+                                                                                                                                                          owl:withRestrictions ( [ xsd:maxExclusive "7"^^xsd:int
+                                                                                                                                                                                 ]
+                                                                                                                                                                               )
+                                                                                                                                                        ]
+                                                                                                                                                      )
+                                                                                                                                 ]
+                                                                                                                                 [ rdf:type rdfs:Datatype ;
+                                                                                                                                   owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                                                          owl:onDatatype xsd:int ;
+                                                                                                                                                          owl:withRestrictions ( [ xsd:minInclusive "20"^^xsd:int
+                                                                                                                                                                                 ]
+                                                                                                                                                                               )
+                                                                                                                                                        ]
+                                                                                                                                                        [ rdf:type rdfs:Datatype ;
+                                                                                                                                                          owl:onDatatype xsd:int ;
+                                                                                                                                                          owl:withRestrictions ( [ xsd:maxExclusive "24"^^xsd:int
+                                                                                                                                                                                 ]
+                                                                                                                                                                               )
+                                                                                                                                                        ]
+                                                                                                                                                      )
+                                                                                                                                 ]
+                                                                                                                                 [ rdf:type rdfs:Datatype ;
+                                                                                                                                   owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                                                          owl:onDatatype xsd:int ;
+                                                                                                                                                          owl:withRestrictions ( [ xsd:minInclusive "9"^^xsd:int
+                                                                                                                                                                                 ]
+                                                                                                                                                                               )
+                                                                                                                                                        ]
+                                                                                                                                                        [ rdf:type rdfs:Datatype ;
+                                                                                                                                                          owl:onDatatype xsd:int ;
+                                                                                                                                                          owl:withRestrictions ( [ xsd:maxExclusive "17"^^xsd:int
+                                                                                                                                                                                 ]
+                                                                                                                                                                               )
+                                                                                                                                                        ]
+                                                                                                                                                      )
+                                                                                                                                 ]
+                                                                                                                               )
+                                                                                                                 ]
+                                                                                               ]
+                                                                                             )
+                                                                        ] .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Normal
+
+<http://openkg.cn/schema/waterlogging#Normal> rdf:type owl:Class ;
+                                              
+                                              rdfs:label "无内涝"^^xsd:int ;
+                                              
+                                              owl:equivalentClass [ rdf:type owl:Class ;
+                                                                    owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#Severity>
+                                                                                         [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty <http://openkg.cn/schema/waterlogging#hasSeverity> ;
+                                                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                           owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                             owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                                                    owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:int
+                                                                                                                                                           ]
+                                                                                                                                                         )
+                                                                                                                                  ]
+                                                                                                                                  [ rdf:type rdfs:Datatype ;
+                                                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                                                    owl:withRestrictions ( [ xsd:maxInclusive "0"^^xsd:int
+                                                                                                                                                           ]
+                                                                                                                                                         )
+                                                                                                                                  ]
+                                                                                                                                )
+                                                                                                           ]
+                                                                                         ]
+                                                                                       )
+                                                                  ] ;
+                                              
+                                              rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Severity> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#PlaceOfOccurrence
+
+<http://openkg.cn/schema/waterlogging#PlaceOfOccurrence> rdf:type owl:Class ;
+                                                         
+                                                         rdfs:label "内涝地点" ;
+                                                         
+                                                         rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Location> ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty <http://openkg.cn/schema/waterlogging#hasLonValue> ;
+                                                                           owl:someValuesFrom xsd:double
+                                                                         ] ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty <http://openkg.cn/schema/waterlogging#hasLatValue> ;
+                                                                           owl:someValuesFrom xsd:double
+                                                                         ] ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty <http://openkg.cn/schema/waterlogging#hasWaterloggingLocation> ;
+                                                                           owl:someValuesFrom xsd:string
+                                                                         ] ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty <http://openkg.cn/schema/waterlogging#hasLocationCityValue> ;
+                                                                           owl:someValuesFrom xsd:string
+                                                                         ] .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Precipitation
+
+<http://openkg.cn/schema/waterlogging#Precipitation> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:label "降水量"^^xsd:int .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Rainstorm
+
+<http://openkg.cn/schema/waterlogging#Rainstorm> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:label "暴雨"^^xsd:int ;
+                                                 
+                                                 owl:equivalentClass [ rdf:type owl:Class ;
+                                                                       owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#Precipitation>
+                                                                                            [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty <http://openkg.cn/schema/waterlogging#hasPrecipitationValue> ;
+                                                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                              owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                                owl:onDatatype xsd:int ;
+                                                                                                                owl:withRestrictions ( [ xsd:minInclusive "200"^^xsd:int
+                                                                                                                                       ]
+                                                                                                                                     )
+                                                                                                              ]
+                                                                                            ]
+                                                                                          )
+                                                                     ] ;
+                                                 
+                                                 rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Precipitation> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Severe
+
+<http://openkg.cn/schema/waterlogging#Severe> rdf:type owl:Class ;
+                                              
+                                              rdfs:label "严重"^^xsd:int ;
+                                              
+                                              owl:equivalentClass [ rdf:type owl:Class ;
+                                                                    owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#Severity>
+                                                                                         [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty <http://openkg.cn/schema/waterlogging#hasSeverity> ;
+                                                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                           owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                             owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                                                    owl:withRestrictions ( [ xsd:minInclusive "2"^^xsd:int
+                                                                                                                                                           ]
+                                                                                                                                                         )
+                                                                                                                                  ]
+                                                                                                                                  [ rdf:type rdfs:Datatype ;
+                                                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                                                    owl:withRestrictions ( [ xsd:maxInclusive "2"^^xsd:int
+                                                                                                                                                           ]
+                                                                                                                                                         )
+                                                                                                                                  ]
+                                                                                                                                )
+                                                                                                           ]
+                                                                                         ]
+                                                                                       )
+                                                                  ] ;
+                                              
+                                              rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Severity> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Severity
+
+<http://openkg.cn/schema/waterlogging#Severity> rdf:type owl:Class ;
+                                                
+                                                rdfs:label "严重程度" .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Shanghai
+
+<http://openkg.cn/schema/waterlogging#Shanghai> rdf:type owl:Class ;
+                                                
+                                                rdfs:label "上海" ;
+                                                
+                                                rdfs:subClassOf <http://openkg.cn/schema/waterlogging#PlaceOfOccurrence> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Shenzhen
+
+<http://openkg.cn/schema/waterlogging#Shenzhen> rdf:type owl:Class ;
+                                                
+                                                rdfs:label "深圳" ;
+                                                
+                                                rdfs:subClassOf <http://openkg.cn/schema/waterlogging#PlaceOfOccurrence> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Shijiazhuang
+
+<http://openkg.cn/schema/waterlogging#Shijiazhuang> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:label "石家庄" ;
+                                                    
+                                                    rdfs:subClassOf <http://openkg.cn/schema/waterlogging#PlaceOfOccurrence> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#SlowSpeed
+
+<http://openkg.cn/schema/waterlogging#SlowSpeed> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:label "车速慢"^^xsd:int ;
+                                                 
+                                                 owl:equivalentClass [ rdf:type owl:Class ;
+                                                                       owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#Traffic>
+                                                                                            [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty <http://openkg.cn/schema/waterlogging#hasTrafficValue> ;
+                                                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                              owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                                owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                                       owl:onDatatype xsd:int ;
+                                                                                                                                       owl:withRestrictions ( [ xsd:minInclusive "2"^^xsd:int
+                                                                                                                                                              ]
+                                                                                                                                                            )
+                                                                                                                                     ]
+                                                                                                                                     [ rdf:type rdfs:Datatype ;
+                                                                                                                                       owl:onDatatype xsd:int ;
+                                                                                                                                       owl:withRestrictions ( [ xsd:maxInclusive "3"^^xsd:int
+                                                                                                                                                              ]
+                                                                                                                                                            )
+                                                                                                                                     ]
+                                                                                                                                   )
+                                                                                                              ]
+                                                                                            ]
+                                                                                          )
+                                                                     ] ;
+                                                 
+                                                 rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Traffic> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Terrain
+
+<http://openkg.cn/schema/waterlogging#Terrain> rdf:type owl:Class ;
+                                               
+                                               rdfs:label "地势"^^xsd:int ;
+                                               
+                                               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <http://openkg.cn/schema/waterlogging#hasTerrainValue> ;
+                                                                 owl:someValuesFrom xsd:int
+                                                               ] .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Tianjin
+
+<http://openkg.cn/schema/waterlogging#Tianjin> rdf:type owl:Class ;
+                                               
+                                               rdfs:label "天津" ;
+                                               
+                                               rdfs:subClassOf <http://openkg.cn/schema/waterlogging#PlaceOfOccurrence> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Time
+
+<http://openkg.cn/schema/waterlogging#Time> rdf:type owl:Class ;
+                                            
+                                            rdfs:label "时间" .
+
+
+
+###  http://openkg.cn/schema/waterlogging#TimeInterval
+
+<http://openkg.cn/schema/waterlogging#TimeInterval> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:label "时间段" ;
+                                                    
+                                                    rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Time> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Traffic
+
+<http://openkg.cn/schema/waterlogging#Traffic> rdf:type owl:Class ;
+                                               
+                                               rdfs:label "交通"^^xsd:int .
+
+
+
+###  http://openkg.cn/schema/waterlogging#TrafficClear
+
+<http://openkg.cn/schema/waterlogging#TrafficClear> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:label "通畅"^^xsd:int ;
+                                                    
+                                                    owl:equivalentClass [ rdf:type owl:Class ;
+                                                                          owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#Traffic>
+                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                 owl:onProperty <http://openkg.cn/schema/waterlogging#hasTrafficValue> ;
+                                                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                 owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                                   owl:onDatatype xsd:int ;
+                                                                                                                   owl:withRestrictions ( [ xsd:maxInclusive "2"^^xsd:int
+                                                                                                                                          ]
+                                                                                                                                        )
+                                                                                                                 ]
+                                                                                               ]
+                                                                                             )
+                                                                        ] ;
+                                                    
+                                                    rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Traffic> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#TrafficJam
+
+<http://openkg.cn/schema/waterlogging#TrafficJam> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:label "拥堵"^^xsd:int ;
+                                                  
+                                                  owl:equivalentClass [ rdf:type owl:Class ;
+                                                                        owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#Traffic>
+                                                                                             [ rdf:type owl:Restriction ;
+                                                                                               owl:onProperty <http://openkg.cn/schema/waterlogging#hasTrafficValue> ;
+                                                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                               owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                                 owl:onDatatype xsd:int ;
+                                                                                                                 owl:withRestrictions ( [ xsd:minInclusive "3"^^xsd:int
+                                                                                                                                        ]
+                                                                                                                                      )
+                                                                                                               ]
+                                                                                             ]
+                                                                                           )
+                                                                      ] ;
+                                                  
+                                                  rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Traffic> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Waterlogging
+
+<http://openkg.cn/schema/waterlogging#Waterlogging> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:label "内涝" ;
+                                                    
+                                                    rdfs:subClassOf <http://openkg.cn/schema/waterlogging#Event> ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://openkg.cn/schema/waterlogging#hasWeiboText> ;
+                                                                      owl:someValuesFrom xsd:string
+                                                                    ] ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://openkg.cn/schema/waterlogging#hasSeverity> ;
+                                                                      owl:onClass <http://openkg.cn/schema/waterlogging#Severity> ;
+                                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                    ] ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://openkg.cn/schema/waterlogging#hasHourOfDay> ;
+                                                                      owl:onClass <http://openkg.cn/schema/waterlogging#HourOfDay> ;
+                                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                    ] ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://openkg.cn/schema/waterlogging#hasTerrain> ;
+                                                                      owl:onClass <http://openkg.cn/schema/waterlogging#Terrain> ;
+                                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                    ] ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://openkg.cn/schema/waterlogging#hasWaterloggingOccuranceLocation> ;
+                                                                      owl:onClass <http://openkg.cn/schema/waterlogging#PlaceOfOccurrence> ;
+                                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                    ] ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://openkg.cn/schema/waterlogging#hasPrecipitation> ;
+                                                                      owl:onClass <http://openkg.cn/schema/waterlogging#Precipitation> ;
+                                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                    ] ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://openkg.cn/schema/waterlogging#hasDayOfWeek> ;
+                                                                      owl:onClass <http://openkg.cn/schema/waterlogging#DayOfWeek> ;
+                                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                    ] ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://openkg.cn/schema/waterlogging#hasPictureUrl> ;
+                                                                      owl:someValuesFrom xsd:string
+                                                                    ] ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://openkg.cn/schema/waterlogging#hasTraffic> ;
+                                                                      owl:onClass <http://openkg.cn/schema/waterlogging#Traffic> ;
+                                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                    ] .
+
+
+
+###  http://openkg.cn/schema/waterlogging#WeekDay
+
+<http://openkg.cn/schema/waterlogging#WeekDay> rdf:type owl:Class ;
+                                               
+                                               rdfs:label "工作日" ;
+                                               
+                                               owl:equivalentClass [ rdf:type owl:Class ;
+                                                                     owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#DayOfWeek>
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty <http://openkg.cn/schema/waterlogging#hasDayValue> ;
+                                                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                            owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                              owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                                     owl:onDatatype xsd:int ;
+                                                                                                                                     owl:withRestrictions ( [ xsd:minInclusive "2"^^xsd:int
+                                                                                                                                                            ]
+                                                                                                                                                          )
+                                                                                                                                   ]
+                                                                                                                                   [ rdf:type rdfs:Datatype ;
+                                                                                                                                     owl:onDatatype xsd:int ;
+                                                                                                                                     owl:withRestrictions ( [ xsd:maxInclusive "6"^^xsd:int
+                                                                                                                                                            ]
+                                                                                                                                                          )
+                                                                                                                                   ]
+                                                                                                                                 )
+                                                                                                            ]
+                                                                                          ]
+                                                                                        )
+                                                                   ] .
+
+
+
+###  http://openkg.cn/schema/waterlogging#WeekEnd
+
+<http://openkg.cn/schema/waterlogging#WeekEnd> rdf:type owl:Class ;
+                                               
+                                               rdfs:label "休息日" ;
+                                               
+                                               owl:equivalentClass [ rdf:type owl:Class ;
+                                                                     owl:intersectionOf ( <http://openkg.cn/schema/waterlogging#DayOfWeek>
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty <http://openkg.cn/schema/waterlogging#hasDayValue> ;
+                                                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                            owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                                              owl:unionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                              owl:onDatatype xsd:int ;
+                                                                                                                              owl:withRestrictions ( [ xsd:minInclusive "7"^^xsd:int
+                                                                                                                                                     ]
+                                                                                                                                                   )
+                                                                                                                            ]
+                                                                                                                            [ rdf:type rdfs:Datatype ;
+                                                                                                                              owl:onDatatype xsd:int ;
+                                                                                                                              owl:withRestrictions ( [ xsd:maxInclusive "1"^^xsd:int
+                                                                                                                                                     ]
+                                                                                                                                                   )
+                                                                                                                            ]
+                                                                                                                          )
+                                                                                                            ]
+                                                                                          ]
+                                                                                        )
+                                                                   ] .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Wuhan
+
+<http://openkg.cn/schema/waterlogging#Wuhan> rdf:type owl:Class ;
+                                             
+                                             rdfs:label "武汉" ;
+                                             
+                                             rdfs:subClassOf <http://openkg.cn/schema/waterlogging#PlaceOfOccurrence> .
+
+
+
+###  http://openkg.cn/schema/waterlogging#Xiamen
+
+<http://openkg.cn/schema/waterlogging#Xiamen> rdf:type owl:Class ;
+                                              
+                                              rdfs:label "厦门" ;
+                                              
+                                              rdfs:subClassOf <http://openkg.cn/schema/waterlogging#PlaceOfOccurrence> .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+

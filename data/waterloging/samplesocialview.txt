@@ -1,0 +1,3 @@
+cityid_blockid	word_distance(3 distance)	WSI(waterlogging severity index-- sum of total relative frequencies of waterlogging-related  phrases in the current tweets)
+2_13	0.175	0.152	0.551	1.153		
+2_15	0.375	1.252	1.251	1.195

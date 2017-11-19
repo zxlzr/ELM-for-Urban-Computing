@@ -1,0 +1,1920 @@
+@prefix : <http://smog.locigraph.cn/ontologies/2016/6/sensor#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://smog.locigraph.cn/ontologies/2016/6/sensor> .
+
+<http://smog.locigraph.cn/ontologies/2016/6/sensor> rdf:type owl:Ontology ;
+                                                    
+                                                    rdfs:comment "This ontology aims at modeling spatio-temporal smog evolution" .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasAir
+
+:hasAir rdf:type owl:FunctionalProperty ,
+                 owl:ObjectProperty ;
+        
+        rdfs:label "有空气质量" ;
+        
+        rdfs:range :Air ;
+        
+        rdfs:domain :Snapshot .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasDayOfWeek
+
+:hasDayOfWeek rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "有一周中的某天" ;
+              
+              rdfs:range :DayOfWeek ;
+              
+              rdfs:domain :Snapshot .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasHourOfDay
+
+:hasHourOfDay rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "有一天中的某小时" ;
+              
+              rdfs:range :HourOfDay ;
+              
+              rdfs:domain :Snapshot .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasMeteorology
+
+:hasMeteorology rdf:type owl:FunctionalProperty ,
+                         owl:ObjectProperty ;
+                
+                rdfs:label "有气象条件" ;
+                
+                rdfs:range :Meteorology ;
+                
+                rdfs:domain :Snapshot .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasSensorLocation
+
+:hasSensorLocation rdf:type owl:ObjectProperty ;
+                   
+                   rdfs:label "有观测点" ;
+                   
+                   rdfs:range :Sensor_Location ;
+                   
+                   rdfs:domain :Snapshot .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasTimeInterval
+
+:hasTimeInterval rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:label "有观测时间" ;
+                 
+                 rdfs:domain :Snapshot ;
+                 
+                 rdfs:range :TimeInterval .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasWeatherType
+
+:hasWeatherType rdf:type owl:ObjectProperty ;
+                
+                rdfs:label "有天气" ;
+                
+                rdfs:domain :Meteorology ;
+                
+                rdfs:range :WeatherType .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasWind
+
+:hasWind rdf:type owl:FunctionalProperty ,
+                  owl:ObjectProperty ;
+         
+         rdfs:label "有风" ;
+         
+         rdfs:domain :Meteorology ;
+         
+         rdfs:range :Wind .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#endTime
+
+:endTime rdf:type owl:DatatypeProperty ;
+         
+         rdfs:label "结束时间点" ;
+         
+         rdfs:domain :TimeInterval ;
+         
+         rdfs:range xsd:dateTime .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasAQIValue
+
+:hasAQIValue rdf:type owl:DatatypeProperty ;
+             
+             rdfs:label "有AQI值" ;
+             
+             rdfs:domain :Air ;
+             
+             rdfs:range xsd:int .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasCOValue
+
+:hasCOValue rdf:type owl:DatatypeProperty ;
+            
+            rdfs:label "有CO值" ;
+            
+            rdfs:domain :Air ;
+            
+            rdfs:range xsd:float .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasCloudCoverValue
+
+:hasCloudCoverValue rdf:type owl:DatatypeProperty ;
+                    
+                    rdfs:label "有云量值" ;
+                    
+                    rdfs:domain :Meteorology ;
+                    
+                    rdfs:range xsd:float .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasDayValue
+
+:hasDayValue rdf:type owl:DatatypeProperty ;
+             
+             rdfs:label "第几天值" ;
+             
+             rdfs:domain :DayOfWeek ;
+             
+             rdfs:range xsd:int .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasHourValue
+
+:hasHourValue rdf:type owl:DatatypeProperty ;
+              
+              rdfs:label "第几小时值" ;
+              
+              rdfs:domain :HourOfDay ;
+              
+              rdfs:range xsd:int .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasHumidityValue
+
+:hasHumidityValue rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:label "有湿度值" ;
+                  
+                  rdfs:domain :Meteorology ;
+                  
+                  rdfs:range xsd:float .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasLatValue
+
+:hasLatValue rdf:type owl:DatatypeProperty ;
+             
+             rdfs:label "有纬度值" ;
+             
+             rdfs:domain :Sensor_Location ;
+             
+             rdfs:range xsd:double .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasLocationCityValue
+
+:hasLocationCityValue rdf:type owl:DatatypeProperty ;
+                      
+                      rdfs:label "有所处城市值" ;
+                      
+                      rdfs:domain :Sensor_Location ;
+                      
+                      rdfs:range xsd:string .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasLonValue
+
+:hasLonValue rdf:type owl:DatatypeProperty ;
+             
+             rdfs:label "有经度值" ;
+             
+             rdfs:domain :Sensor_Location ;
+             
+             rdfs:range xsd:double .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasNO2Value
+
+:hasNO2Value rdf:type owl:DatatypeProperty ;
+             
+             rdfs:label "有NO2值" ;
+             
+             rdfs:domain :Air ;
+             
+             rdfs:range xsd:int .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasNameValue
+
+:hasNameValue rdf:type owl:DatatypeProperty ;
+              
+              rdfs:label "有名称值" ;
+              
+              rdfs:domain :Sensor_Location ;
+              
+              rdfs:range xsd:string .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasO3Value
+
+:hasO3Value rdf:type owl:DatatypeProperty ;
+            
+            rdfs:label "有O3值" ;
+            
+            rdfs:domain :Air ;
+            
+            rdfs:range xsd:int .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasPM10Value
+
+:hasPM10Value rdf:type owl:DatatypeProperty ;
+              
+              rdfs:label "有PM10值" ;
+              
+              rdfs:domain :Air ;
+              
+              rdfs:range xsd:int .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasPM25Value
+
+:hasPM25Value rdf:type owl:DatatypeProperty ;
+              
+              rdfs:label "有PM2.5值" ;
+              
+              rdfs:domain :Air ;
+              
+              rdfs:range xsd:int .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasPrecipitationValue
+
+:hasPrecipitationValue rdf:type owl:DatatypeProperty ;
+                       
+                       rdfs:label "有降水量值" ;
+                       
+                       rdfs:domain :Meteorology ;
+                       
+                       rdfs:range xsd:float .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasPressureValue
+
+:hasPressureValue rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:label "有大气压值" ;
+                  
+                  rdfs:domain :Meteorology ;
+                  
+                  rdfs:range xsd:float .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasPrimaryPollutantValue
+
+:hasPrimaryPollutantValue rdf:type owl:DatatypeProperty ;
+                          
+                          rdfs:label "有主要污染物值" ;
+                          
+                          rdfs:domain :Air ;
+                          
+                          rdfs:range xsd:string .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasSO2Value
+
+:hasSO2Value rdf:type owl:DatatypeProperty ;
+             
+             rdfs:label "有SO2值" ;
+             
+             rdfs:domain :Air ;
+             
+             rdfs:range xsd:int .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasTemperatureValue
+
+:hasTemperatureValue rdf:type owl:DatatypeProperty ;
+                     
+                     rdfs:label "有气温值" ;
+                     
+                     rdfs:domain :Meteorology ;
+                     
+                     rdfs:range xsd:float .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasVisibilityValue
+
+:hasVisibilityValue rdf:type owl:DatatypeProperty ;
+                    
+                    rdfs:label "有能见度值" ;
+                    
+                    rdfs:domain :Meteorology ;
+                    
+                    rdfs:range xsd:float .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasWeatherDescriptionValue
+
+:hasWeatherDescriptionValue rdf:type owl:DatatypeProperty ;
+                            
+                            rdfs:label "有天气描述值" ;
+                            
+                            rdfs:domain :WeatherType ;
+                            
+                            rdfs:range xsd:string .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasWindBeaufortScaleValue
+
+:hasWindBeaufortScaleValue rdf:type owl:DatatypeProperty ;
+                           
+                           rdfs:label "有风力级别值" ;
+                           
+                           rdfs:domain :Wind ;
+                           
+                           rdfs:range xsd:int .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#hasWindDirectionValue
+
+:hasWindDirectionValue rdf:type owl:DatatypeProperty ;
+                       
+                       rdfs:label "有风向值" ;
+                       
+                       rdfs:domain :Wind ;
+                       
+                       rdfs:range xsd:int .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#startTime
+
+:startTime rdf:type owl:DatatypeProperty ;
+           
+           rdfs:label "开始时间点" ;
+           
+           rdfs:domain :TimeInterval ;
+           
+           rdfs:range xsd:dateTime .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Air
+
+:Air rdf:type owl:Class ;
+     
+     rdfs:label "空气质量" ;
+     
+     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                       owl:onProperty :hasAQIValue ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange xsd:int
+                     ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Beijing_Station
+
+:Beijing_Station rdf:type owl:Class ;
+                 
+                 rdfs:label "北京观测站" ;
+                 
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:oneOf ( :Dongsi
+                                                   :Shunyixincheng
+                                                   :Changping
+                                                   :Dingling
+                                                   :Guanyuan
+                                                   :Gucheng
+                                                   :Nongzhanguan
+                                                   :Wanshouxigong
+                                                   :Aotizhongxin
+                                                   :Tiantan
+                                                   :Haidianquwanliu
+                                                   :Huairou
+                                                 )
+                                     ] ;
+                 
+                 rdfs:subClassOf :Sensor_Location .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Breezy
+
+:Breezy rdf:type owl:Class ;
+        
+        rdfs:label "有微风" ;
+        
+        owl:equivalentClass [ rdf:type owl:Class ;
+                              owl:intersectionOf ( :WeatherType
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :hasWeatherDescriptionValue ;
+                                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                          owl:oneOf [ rdf:type rdf:List ;
+                                                                                      rdf:first "Breezy" ;
+                                                                                      rdf:rest rdf:nil
+                                                                                    ]
+                                                                        ]
+                                                   ]
+                                                 )
+                            ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Calm
+
+:Calm rdf:type owl:Class ;
+      
+      rdfs:label "无风" ;
+      
+      owl:equivalentClass [ rdf:type owl:Class ;
+                            owl:intersectionOf ( :Wind
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasWindBeaufortScaleValue ;
+                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                     owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                            owl:onDatatype xsd:int ;
+                                                                                            owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:int
+                                                                                                                   ]
+                                                                                                                 )
+                                                                                          ]
+                                                                                          [ rdf:type rdfs:Datatype ;
+                                                                                            owl:onDatatype xsd:int ;
+                                                                                            owl:withRestrictions ( [ xsd:maxInclusive "0"^^xsd:int
+                                                                                                                   ]
+                                                                                                                 )
+                                                                                          ]
+                                                                                        )
+                                                                   ]
+                                                 ]
+                                               )
+                          ] ;
+      
+      rdfs:subClassOf :Wind .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Chongqing_Station
+
+:Chongqing_Station rdf:type owl:Class ;
+                   
+                   rdfs:label "重庆观测站" ;
+                   
+                   rdfs:subClassOf :Sensor_Location .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Clear
+
+:Clear rdf:type owl:Class ;
+       
+       rdfs:label "晴" ;
+       
+       owl:equivalentClass [ rdf:type owl:Class ;
+                             owl:intersectionOf ( :WeatherType
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasWeatherDescriptionValue ;
+                                                    owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                         owl:oneOf [ rdf:type rdf:List ;
+                                                                                     rdf:first "Clear" ;
+                                                                                     rdf:rest rdf:nil
+                                                                                   ]
+                                                                       ]
+                                                  ]
+                                                )
+                           ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#DayOfWeek
+
+:DayOfWeek rdf:type owl:Class ;
+           
+           rdfs:label "一周中的某天" ;
+           
+           rdfs:subClassOf :Time ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasDayValue ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:int
+                           ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Dry
+
+:Dry rdf:type owl:Class ;
+     
+     rdfs:label "干燥" ;
+     
+     owl:equivalentClass [ rdf:type owl:Class ;
+                           owl:intersectionOf ( :WeatherType
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :hasWeatherDescriptionValue ;
+                                                  owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                       owl:oneOf [ rdf:type rdf:List ;
+                                                                                   rdf:first "Dry" ;
+                                                                                   rdf:rest rdf:nil
+                                                                                 ]
+                                                                     ]
+                                                ]
+                                              )
+                         ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Emergent
+
+:Emergent rdf:type owl:Class ;
+          
+          rdfs:label "严重污染" ;
+          
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:intersectionOf ( :Air
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hasAQIValue ;
+                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                         owl:onDatatype xsd:int ;
+                                                                         owl:withRestrictions ( [ xsd:minExclusive "300"^^xsd:int
+                                                                                                ]
+                                                                                              )
+                                                                       ]
+                                                     ]
+                                                   )
+                              ] ;
+          
+          rdfs:comment "危险" .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#EveningRushHour
+
+:EveningRushHour rdf:type owl:Class ;
+                 
+                 rdfs:label "晚高峰时段" ;
+                 
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:intersectionOf ( :HourOfDay
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :hasHourValue ;
+                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                              owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                       owl:onDatatype xsd:int ;
+                                                                                                       owl:withRestrictions ( [ xsd:minInclusive "17"^^xsd:int
+                                                                                                                              ]
+                                                                                                                            )
+                                                                                                     ]
+                                                                                                     [ rdf:type rdfs:Datatype ;
+                                                                                                       owl:onDatatype xsd:int ;
+                                                                                                       owl:withRestrictions ( [ xsd:maxExclusive "20"^^xsd:int
+                                                                                                                              ]
+                                                                                                                            )
+                                                                                                     ]
+                                                                                                   )
+                                                                              ]
+                                                            ]
+                                                          )
+                                     ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Event
+
+:Event rdf:type owl:Class ;
+       
+       rdfs:label "事件" .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Foggy
+
+:Foggy rdf:type owl:Class ;
+       
+       rdfs:label "有雾" ;
+       
+       owl:equivalentClass [ rdf:type owl:Class ;
+                             owl:intersectionOf ( :WeatherType
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasWeatherDescriptionValue ;
+                                                    owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                         owl:oneOf [ rdf:type rdf:List ;
+                                                                                     rdf:first "Foggy" ;
+                                                                                     rdf:rest rdf:nil
+                                                                                   ]
+                                                                       ]
+                                                  ]
+                                                )
+                           ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#FreshBreeze
+
+:FreshBreeze rdf:type owl:Class ;
+             
+             rdfs:label "清风" ;
+             
+             owl:equivalentClass [ rdf:type owl:Class ;
+                                   owl:intersectionOf ( :Wind
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :hasWindBeaufortScaleValue ;
+                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                          owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                            owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                   owl:onDatatype xsd:int ;
+                                                                                                   owl:withRestrictions ( [ xsd:minInclusive "5"^^xsd:int
+                                                                                                                          ]
+                                                                                                                        )
+                                                                                                 ]
+                                                                                                 [ rdf:type rdfs:Datatype ;
+                                                                                                   owl:onDatatype xsd:int ;
+                                                                                                   owl:withRestrictions ( [ xsd:maxInclusive "5"^^xsd:int
+                                                                                                                          ]
+                                                                                                                        )
+                                                                                                 ]
+                                                                                               )
+                                                                          ]
+                                                        ]
+                                                      )
+                                 ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#FreshGale
+
+:FreshGale rdf:type owl:Class ;
+           
+           rdfs:label "大风" ;
+           
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:intersectionOf ( :Wind
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :hasWindBeaufortScaleValue ;
+                                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                        owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                          owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                 owl:onDatatype xsd:int ;
+                                                                                                 owl:withRestrictions ( [ xsd:minInclusive "8"^^xsd:int
+                                                                                                                        ]
+                                                                                                                      )
+                                                                                               ]
+                                                                                               [ rdf:type rdfs:Datatype ;
+                                                                                                 owl:onDatatype xsd:int ;
+                                                                                                 owl:withRestrictions ( [ xsd:maxInclusive "8"^^xsd:int
+                                                                                                                        ]
+                                                                                                                      )
+                                                                                               ]
+                                                                                             )
+                                                                        ]
+                                                      ]
+                                                    )
+                               ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#GentleBreeze
+
+:GentleBreeze rdf:type owl:Class ;
+              
+              rdfs:label "微风" ;
+              
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:intersectionOf ( :Wind
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasWindBeaufortScaleValue ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                             owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                    owl:withRestrictions ( [ xsd:minInclusive "3"^^xsd:int
+                                                                                                                           ]
+                                                                                                                         )
+                                                                                                  ]
+                                                                                                  [ rdf:type rdfs:Datatype ;
+                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                    owl:withRestrictions ( [ xsd:maxInclusive "3"^^xsd:int
+                                                                                                                           ]
+                                                                                                                         )
+                                                                                                  ]
+                                                                                                )
+                                                                           ]
+                                                         ]
+                                                       )
+                                  ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Good
+
+:Good rdf:type owl:Class ;
+      
+      rdfs:label "优" ;
+      
+      owl:equivalentClass [ rdf:type owl:Class ;
+                            owl:intersectionOf ( :Air
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasAQIValue ;
+                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                     owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                            owl:onDatatype xsd:int ;
+                                                                                            owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:int
+                                                                                                                   ]
+                                                                                                                 )
+                                                                                          ]
+                                                                                          [ rdf:type rdfs:Datatype ;
+                                                                                            owl:onDatatype xsd:int ;
+                                                                                            owl:withRestrictions ( [ xsd:maxInclusive "50"^^xsd:int
+                                                                                                                   ]
+                                                                                                                 )
+                                                                                          ]
+                                                                                        )
+                                                                   ]
+                                                 ]
+                                               )
+                          ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Guangzhou_Station
+
+:Guangzhou_Station rdf:type owl:Class ;
+                   
+                   rdfs:label "广州观测站" ;
+                   
+                   rdfs:subClassOf :Sensor_Location .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Hangzhou_Station
+
+:Hangzhou_Station rdf:type owl:Class ;
+                  
+                  rdfs:label "杭州观测站" ;
+                  
+                  rdfs:subClassOf :Sensor_Location .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Hazardous
+
+:Hazardous rdf:type owl:Class ;
+           
+           rdfs:label "重度污染" ;
+           
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:intersectionOf ( :Air
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :hasAQIValue ;
+                                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                        owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                          owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                 owl:onDatatype xsd:int ;
+                                                                                                 owl:withRestrictions ( [ xsd:minExclusive "200"^^xsd:int
+                                                                                                                        ]
+                                                                                                                      )
+                                                                                               ]
+                                                                                               [ rdf:type rdfs:Datatype ;
+                                                                                                 owl:onDatatype xsd:int ;
+                                                                                                 owl:withRestrictions ( [ xsd:maxInclusive "300"^^xsd:int
+                                                                                                                        ]
+                                                                                                                      )
+                                                                                               ]
+                                                                                             )
+                                                                        ]
+                                                      ]
+                                                    )
+                               ] ;
+           
+           rdfs:comment "非常不健康" .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#HourOfDay
+
+:HourOfDay rdf:type owl:Class ;
+           
+           rdfs:label "一天中的某小时" ;
+           
+           rdfs:subClassOf :Time ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasHourValue ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                               owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                      owl:onDatatype xsd:int ;
+                                                                      owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:int
+                                                                                             ]
+                                                                                           )
+                                                                    ]
+                                                                    [ rdf:type rdfs:Datatype ;
+                                                                      owl:onDatatype xsd:int ;
+                                                                      owl:withRestrictions ( [ xsd:maxExclusive "24"^^xsd:int
+                                                                                             ]
+                                                                                           )
+                                                                    ]
+                                                                  )
+                                             ]
+                           ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Humid
+
+:Humid rdf:type owl:Class ;
+       
+       rdfs:label "潮湿" ;
+       
+       owl:equivalentClass [ rdf:type owl:Class ;
+                             owl:intersectionOf ( :WeatherType
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasWeatherDescriptionValue ;
+                                                    owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                         owl:oneOf [ rdf:type rdf:List ;
+                                                                                     rdf:first "Humid" ;
+                                                                                     rdf:rest rdf:nil
+                                                                                   ]
+                                                                       ]
+                                                  ]
+                                                )
+                           ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Hurricane
+
+:Hurricane rdf:type owl:Class ;
+           
+           rdfs:label "飓风" ;
+           
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:intersectionOf ( :Wind
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :hasWindBeaufortScaleValue ;
+                                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                        owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                          owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                 owl:onDatatype xsd:int ;
+                                                                                                 owl:withRestrictions ( [ xsd:minInclusive "12"^^xsd:int
+                                                                                                                        ]
+                                                                                                                      )
+                                                                                               ]
+                                                                                               [ rdf:type rdfs:Datatype ;
+                                                                                                 owl:onDatatype xsd:int ;
+                                                                                                 owl:withRestrictions ( [ xsd:maxInclusive "17"^^xsd:int
+                                                                                                                        ]
+                                                                                                                      )
+                                                                                               ]
+                                                                                             )
+                                                                        ]
+                                                      ]
+                                                    )
+                               ] ;
+           
+           rdfs:subClassOf :Wind .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#LightAir
+
+:LightAir rdf:type owl:Class ;
+          
+          rdfs:label "软风" ;
+          
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:intersectionOf ( :Wind
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hasWindBeaufortScaleValue ;
+                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                         owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                owl:onDatatype xsd:int ;
+                                                                                                owl:withRestrictions ( [ xsd:minInclusive "1"^^xsd:int
+                                                                                                                       ]
+                                                                                                                     )
+                                                                                              ]
+                                                                                              [ rdf:type rdfs:Datatype ;
+                                                                                                owl:onDatatype xsd:int ;
+                                                                                                owl:withRestrictions ( [ xsd:maxInclusive "1"^^xsd:int
+                                                                                                                       ]
+                                                                                                                     )
+                                                                                              ]
+                                                                                            )
+                                                                       ]
+                                                     ]
+                                                   )
+                              ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#LightBreeze
+
+:LightBreeze rdf:type owl:Class ;
+             
+             rdfs:label "轻风" ;
+             
+             owl:equivalentClass [ rdf:type owl:Class ;
+                                   owl:intersectionOf ( :Wind
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :hasWindBeaufortScaleValue ;
+                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                          owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                            owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                   owl:onDatatype xsd:int ;
+                                                                                                   owl:withRestrictions ( [ xsd:minInclusive "2"^^xsd:int
+                                                                                                                          ]
+                                                                                                                        )
+                                                                                                 ]
+                                                                                                 [ rdf:type rdfs:Datatype ;
+                                                                                                   owl:onDatatype xsd:int ;
+                                                                                                   owl:withRestrictions ( [ xsd:maxInclusive "2"^^xsd:int
+                                                                                                                          ]
+                                                                                                                        )
+                                                                                                 ]
+                                                                                               )
+                                                                          ]
+                                                        ]
+                                                      )
+                                 ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Location
+
+:Location rdf:type owl:Class ;
+          
+          rdfs:label "地点" .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Meteorology
+
+:Meteorology rdf:type owl:Class ;
+             
+             rdfs:label "气象条件" ;
+             
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasWind ;
+                               owl:onClass :Wind ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasWeatherType ;
+                               owl:onClass :WeatherType ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                             ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Moderate
+
+:Moderate rdf:type owl:Class ;
+          
+          rdfs:label "良" ;
+          
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:intersectionOf ( :Air
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hasAQIValue ;
+                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                         owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                owl:onDatatype xsd:int ;
+                                                                                                owl:withRestrictions ( [ xsd:minExclusive "50"^^xsd:int
+                                                                                                                       ]
+                                                                                                                     )
+                                                                                              ]
+                                                                                              [ rdf:type rdfs:Datatype ;
+                                                                                                owl:onDatatype xsd:int ;
+                                                                                                owl:withRestrictions ( [ xsd:maxInclusive "100"^^xsd:int
+                                                                                                                       ]
+                                                                                                                     )
+                                                                                              ]
+                                                                                            )
+                                                                       ]
+                                                     ]
+                                                   )
+                              ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#ModerateBreeze
+
+:ModerateBreeze rdf:type owl:Class ;
+                
+                rdfs:label "和风" ;
+                
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:intersectionOf ( :Wind
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :hasWindBeaufortScaleValue ;
+                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                             owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                               owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                      owl:onDatatype xsd:int ;
+                                                                                                      owl:withRestrictions ( [ xsd:minInclusive "4"^^xsd:int
+                                                                                                                             ]
+                                                                                                                           )
+                                                                                                    ]
+                                                                                                    [ rdf:type rdfs:Datatype ;
+                                                                                                      owl:onDatatype xsd:int ;
+                                                                                                      owl:withRestrictions ( [ xsd:maxInclusive "4"^^xsd:int
+                                                                                                                             ]
+                                                                                                                           )
+                                                                                                    ]
+                                                                                                  )
+                                                                             ]
+                                                           ]
+                                                         )
+                                    ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#ModerateGale
+
+:ModerateGale rdf:type owl:Class ;
+              
+              rdfs:label "疾风" ;
+              
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:intersectionOf ( :Wind
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasWindBeaufortScaleValue ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                             owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                    owl:withRestrictions ( [ xsd:minInclusive "7"^^xsd:int
+                                                                                                                           ]
+                                                                                                                         )
+                                                                                                  ]
+                                                                                                  [ rdf:type rdfs:Datatype ;
+                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                    owl:withRestrictions ( [ xsd:maxInclusive "7"^^xsd:int
+                                                                                                                           ]
+                                                                                                                         )
+                                                                                                  ]
+                                                                                                )
+                                                                           ]
+                                                         ]
+                                                       )
+                                  ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#MorningRushHour
+
+:MorningRushHour rdf:type owl:Class ;
+                 
+                 rdfs:label "早高峰时段" ;
+                 
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:intersectionOf ( :HourOfDay
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :hasHourValue ;
+                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                              owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                                owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                       owl:onDatatype xsd:int ;
+                                                                                                       owl:withRestrictions ( [ xsd:minInclusive "7"^^xsd:int
+                                                                                                                              ]
+                                                                                                                            )
+                                                                                                     ]
+                                                                                                     [ rdf:type rdfs:Datatype ;
+                                                                                                       owl:onDatatype xsd:int ;
+                                                                                                       owl:withRestrictions ( [ xsd:maxExclusive "9"^^xsd:int
+                                                                                                                              ]
+                                                                                                                            )
+                                                                                                     ]
+                                                                                                   )
+                                                                              ]
+                                                            ]
+                                                          )
+                                     ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#MostlyCloudy
+
+:MostlyCloudy rdf:type owl:Class ;
+              
+              rdfs:label "多云" ;
+              
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:intersectionOf ( :WeatherType
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasWeatherDescriptionValue ;
+                                                           owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                owl:oneOf [ rdf:type rdf:List ;
+                                                                                            rdf:first "Mostly Cloudy" ;
+                                                                                            rdf:rest rdf:nil
+                                                                                          ]
+                                                                              ]
+                                                         ]
+                                                       )
+                                  ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Nanjing_Station
+
+:Nanjing_Station rdf:type owl:Class ;
+                 
+                 rdfs:label "南京观测站" ;
+                 
+                 rdfs:subClassOf :Sensor_Location .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#NoneRushHour
+
+:NoneRushHour rdf:type owl:Class ;
+              
+              rdfs:label "非高峰时段" ;
+              
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:intersectionOf ( :HourOfDay
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasHourValue ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                             owl:unionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                             owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                                    owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:int
+                                                                                                                                           ]
+                                                                                                                                         )
+                                                                                                                  ]
+                                                                                                                  [ rdf:type rdfs:Datatype ;
+                                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                                    owl:withRestrictions ( [ xsd:maxExclusive "7"^^xsd:int
+                                                                                                                                           ]
+                                                                                                                                         )
+                                                                                                                  ]
+                                                                                                                )
+                                                                                           ]
+                                                                                           [ rdf:type rdfs:Datatype ;
+                                                                                             owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                                    owl:withRestrictions ( [ xsd:minInclusive "20"^^xsd:int
+                                                                                                                                           ]
+                                                                                                                                         )
+                                                                                                                  ]
+                                                                                                                  [ rdf:type rdfs:Datatype ;
+                                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                                    owl:withRestrictions ( [ xsd:maxExclusive "24"^^xsd:int
+                                                                                                                                           ]
+                                                                                                                                         )
+                                                                                                                  ]
+                                                                                                                )
+                                                                                           ]
+                                                                                           [ rdf:type rdfs:Datatype ;
+                                                                                             owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                                    owl:withRestrictions ( [ xsd:minInclusive "9"^^xsd:int
+                                                                                                                                           ]
+                                                                                                                                         )
+                                                                                                                  ]
+                                                                                                                  [ rdf:type rdfs:Datatype ;
+                                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                                    owl:withRestrictions ( [ xsd:maxExclusive "17"^^xsd:int
+                                                                                                                                           ]
+                                                                                                                                         )
+                                                                                                                  ]
+                                                                                                                )
+                                                                                           ]
+                                                                                         )
+                                                                           ]
+                                                         ]
+                                                       )
+                                  ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Overcast
+
+:Overcast rdf:type owl:Class ;
+          
+          rdfs:label "灰蒙蒙" ;
+          
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:intersectionOf ( :WeatherType
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hasWeatherDescriptionValue ;
+                                                       owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                            owl:oneOf [ rdf:type rdf:List ;
+                                                                                        rdf:first "Overcast" ;
+                                                                                        rdf:rest rdf:nil
+                                                                                      ]
+                                                                          ]
+                                                     ]
+                                                   )
+                              ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#PartlyCloudy
+
+:PartlyCloudy rdf:type owl:Class ;
+              
+              rdfs:label "局部多云" ;
+              
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:intersectionOf ( :WeatherType
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasWeatherDescriptionValue ;
+                                                           owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                owl:oneOf [ rdf:type rdf:List ;
+                                                                                            rdf:first "Partly Cloudy" ;
+                                                                                            rdf:rest rdf:nil
+                                                                                          ]
+                                                                              ]
+                                                         ]
+                                                       )
+                                  ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Sensor_Location
+
+:Sensor_Location rdf:type owl:Class ;
+                 
+                 rdfs:label "传感器观测点" ;
+                 
+                 rdfs:subClassOf :Location .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Shanghai_Station
+
+:Shanghai_Station rdf:type owl:Class ;
+                  
+                  rdfs:label "上海观测站" ;
+                  
+                  rdfs:subClassOf :Sensor_Location .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Shenyang_Station
+
+:Shenyang_Station rdf:type owl:Class ;
+                  
+                  rdfs:label "沈阳观测站" ;
+                  
+                  rdfs:subClassOf :Sensor_Location .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Shijiazhuang_Station
+
+:Shijiazhuang_Station rdf:type owl:Class ;
+                      
+                      rdfs:label "石家庄观测站" ;
+                      
+                      rdfs:subClassOf :Sensor_Location .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Snapshot
+
+:Snapshot rdf:type owl:Class ;
+          
+          rdfs:label "观测快照" ;
+          
+          rdfs:subClassOf :Event ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasTimeInterval ;
+                            owl:onClass :TimeInterval ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasDayOfWeek ;
+                            owl:onClass :DayOfWeek ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasSensorLocation ;
+                            owl:onClass :Sensor_Location ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasAir ;
+                            owl:onClass :Air ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasMeteorology ;
+                            owl:onClass :Meteorology ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasHourOfDay ;
+                            owl:onClass :HourOfDay ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                          ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Storm
+
+:Storm rdf:type owl:Class ;
+       
+       rdfs:label "暴风" ;
+       
+       owl:equivalentClass [ rdf:type owl:Class ;
+                             owl:intersectionOf ( :Wind
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasWindBeaufortScaleValue ;
+                                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                    owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                      owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                             owl:onDatatype xsd:int ;
+                                                                                             owl:withRestrictions ( [ xsd:minInclusive "11"^^xsd:int
+                                                                                                                    ]
+                                                                                                                  )
+                                                                                           ]
+                                                                                           [ rdf:type rdfs:Datatype ;
+                                                                                             owl:onDatatype xsd:int ;
+                                                                                             owl:withRestrictions ( [ xsd:maxInclusive "11"^^xsd:int
+                                                                                                                    ]
+                                                                                                                  )
+                                                                                           ]
+                                                                                         )
+                                                                    ]
+                                                  ]
+                                                )
+                           ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#StrongBreeze
+
+:StrongBreeze rdf:type owl:Class ;
+              
+              rdfs:label "强风" ;
+              
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:intersectionOf ( :Wind
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasWindBeaufortScaleValue ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                             owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                    owl:withRestrictions ( [ xsd:minInclusive "6"^^xsd:int
+                                                                                                                           ]
+                                                                                                                         )
+                                                                                                  ]
+                                                                                                  [ rdf:type rdfs:Datatype ;
+                                                                                                    owl:onDatatype xsd:int ;
+                                                                                                    owl:withRestrictions ( [ xsd:maxInclusive "6"^^xsd:int
+                                                                                                                           ]
+                                                                                                                         )
+                                                                                                  ]
+                                                                                                )
+                                                                           ]
+                                                         ]
+                                                       )
+                                  ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#StrongGale
+
+:StrongGale rdf:type owl:Class ;
+            
+            rdfs:label "烈风" ;
+            
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:intersectionOf ( :Wind
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasWindBeaufortScaleValue ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                           owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                  owl:onDatatype xsd:int ;
+                                                                                                  owl:withRestrictions ( [ xsd:minInclusive "9"^^xsd:int
+                                                                                                                         ]
+                                                                                                                       )
+                                                                                                ]
+                                                                                                [ rdf:type rdfs:Datatype ;
+                                                                                                  owl:onDatatype xsd:int ;
+                                                                                                  owl:withRestrictions ( [ xsd:maxInclusive "9"^^xsd:int
+                                                                                                                         ]
+                                                                                                                       )
+                                                                                                ]
+                                                                                              )
+                                                                         ]
+                                                       ]
+                                                     )
+                                ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Tianjing_Station
+
+:Tianjing_Station rdf:type owl:Class ;
+                  
+                  rdfs:label "天津观测站" ;
+                  
+                  rdfs:subClassOf :Sensor_Location .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Time
+
+:Time rdf:type owl:Class ;
+      
+      rdfs:label "时间" .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#TimeInterval
+
+:TimeInterval rdf:type owl:Class ;
+              
+              rdfs:label "时间段" ;
+              
+              rdfs:subClassOf :Time .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Unhealthy
+
+:Unhealthy rdf:type owl:Class ;
+           
+           rdfs:label "轻度污染" ;
+           
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:intersectionOf ( :Air
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :hasAQIValue ;
+                                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                        owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                          owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                 owl:onDatatype xsd:int ;
+                                                                                                 owl:withRestrictions ( [ xsd:minExclusive "100"^^xsd:int
+                                                                                                                        ]
+                                                                                                                      )
+                                                                                               ]
+                                                                                               [ rdf:type rdfs:Datatype ;
+                                                                                                 owl:onDatatype xsd:int ;
+                                                                                                 owl:withRestrictions ( [ xsd:maxInclusive "150"^^xsd:int
+                                                                                                                        ]
+                                                                                                                      )
+                                                                                               ]
+                                                                                             )
+                                                                        ]
+                                                      ]
+                                                    )
+                               ] ;
+           
+           rdfs:comment "不适于敏感人群" .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Veryunhealthy
+
+:Veryunhealthy rdf:type owl:Class ;
+               
+               rdfs:label "中度污染" ;
+               
+               owl:equivalentClass [ rdf:type owl:Class ;
+                                     owl:intersectionOf ( :Air
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasAQIValue ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                              owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                     owl:onDatatype xsd:int ;
+                                                                                                     owl:withRestrictions ( [ xsd:minExclusive "150"^^xsd:int
+                                                                                                                            ]
+                                                                                                                          )
+                                                                                                   ]
+                                                                                                   [ rdf:type rdfs:Datatype ;
+                                                                                                     owl:onDatatype xsd:int ;
+                                                                                                     owl:withRestrictions ( [ xsd:maxInclusive "200"^^xsd:int
+                                                                                                                            ]
+                                                                                                                          )
+                                                                                                   ]
+                                                                                                 )
+                                                                            ]
+                                                          ]
+                                                        )
+                                   ] ;
+               
+               rdfs:comment "不健康" .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#WeatherType
+
+:WeatherType rdf:type owl:Class ;
+             
+             rdfs:label "天气" ;
+             
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasWeatherDescriptionValue ;
+                               owl:someValuesFrom xsd:string
+                             ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#WeekDay
+
+:WeekDay rdf:type owl:Class ;
+         
+         rdfs:label "工作日" ;
+         
+         owl:equivalentClass [ rdf:type owl:Class ;
+                               owl:intersectionOf ( :DayOfWeek
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasDayValue ;
+                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                      owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                        owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                               owl:onDatatype xsd:int ;
+                                                                                               owl:withRestrictions ( [ xsd:minInclusive "2"^^xsd:int
+                                                                                                                      ]
+                                                                                                                    )
+                                                                                             ]
+                                                                                             [ rdf:type rdfs:Datatype ;
+                                                                                               owl:onDatatype xsd:int ;
+                                                                                               owl:withRestrictions ( [ xsd:maxInclusive "6"^^xsd:int
+                                                                                                                      ]
+                                                                                                                    )
+                                                                                             ]
+                                                                                           )
+                                                                      ]
+                                                    ]
+                                                  )
+                             ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#WeekEnd
+
+:WeekEnd rdf:type owl:Class ;
+         
+         rdfs:label "休息日" ;
+         
+         owl:equivalentClass [ rdf:type owl:Class ;
+                               owl:intersectionOf ( :DayOfWeek
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasDayValue ;
+                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                      owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                        owl:unionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                        owl:onDatatype xsd:int ;
+                                                                                        owl:withRestrictions ( [ xsd:minInclusive "7"^^xsd:int
+                                                                                                               ]
+                                                                                                             )
+                                                                                      ]
+                                                                                      [ rdf:type rdfs:Datatype ;
+                                                                                        owl:onDatatype xsd:int ;
+                                                                                        owl:withRestrictions ( [ xsd:maxInclusive "1"^^xsd:int
+                                                                                                               ]
+                                                                                                             )
+                                                                                      ]
+                                                                                    )
+                                                                      ]
+                                                    ]
+                                                  )
+                             ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#WholeGale
+
+:WholeGale rdf:type owl:Class ;
+           
+           rdfs:label "狂风" ;
+           
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:intersectionOf ( :Wind
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :hasWindBeaufortScaleValue ;
+                                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                        owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                                          owl:intersectionOf ( [ rdf:type rdfs:Datatype ;
+                                                                                                 owl:onDatatype xsd:int ;
+                                                                                                 owl:withRestrictions ( [ xsd:minInclusive "10"^^xsd:int
+                                                                                                                        ]
+                                                                                                                      )
+                                                                                               ]
+                                                                                               [ rdf:type rdfs:Datatype ;
+                                                                                                 owl:onDatatype xsd:int ;
+                                                                                                 owl:withRestrictions ( [ xsd:maxInclusive "10"^^xsd:int
+                                                                                                                        ]
+                                                                                                                      )
+                                                                                               ]
+                                                                                             )
+                                                                        ]
+                                                      ]
+                                                    )
+                               ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Wind
+
+:Wind rdf:type owl:Class ;
+      
+      rdfs:label "风" ;
+      
+      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasWindBeaufortScaleValue ;
+                        owl:someValuesFrom xsd:int
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasWindDirectionValue ;
+                        owl:someValuesFrom xsd:int
+                      ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Windy
+
+:Windy rdf:type owl:Class ;
+       
+       rdfs:label "有风" ;
+       
+       owl:equivalentClass [ rdf:type owl:Class ;
+                             owl:intersectionOf ( :WeatherType
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasWeatherDescriptionValue ;
+                                                    owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                         owl:oneOf [ rdf:type rdf:List ;
+                                                                                     rdf:first "Windy" ;
+                                                                                     rdf:rest rdf:nil
+                                                                                   ]
+                                                                       ]
+                                                  ]
+                                                )
+                           ] .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Wuhan_Station
+
+:Wuhan_Station rdf:type owl:Class ;
+               
+               rdfs:label "武汉观测站" ;
+               
+               rdfs:subClassOf :Sensor_Location .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Aotizhongxin
+
+:Aotizhongxin rdf:type :Beijing_Station ,
+                       owl:NamedIndividual ;
+              
+              rdfs:label "奥体中心" ;
+              
+              :hasLonValue "116.403458"^^xsd:double ;
+              
+              :hasLatValue "39.98966406"^^xsd:double ;
+              
+              :hasNameValue "奥体中心"^^xsd:string .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Changping
+
+:Changping rdf:type :Beijing_Station ,
+                    owl:NamedIndividual ;
+           
+           rdfs:label "昌平镇" ;
+           
+           :hasLonValue "116.2330318"^^xsd:double ;
+           
+           :hasLatValue "40.22994018"^^xsd:double ;
+           
+           :hasNameValue "昌平镇"^^xsd:string .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Dingling
+
+:Dingling rdf:type :Beijing_Station ,
+                   owl:NamedIndividual ;
+          
+          rdfs:label "定陵" ;
+          
+          :hasLonValue "116.2324668"^^xsd:double ;
+          
+          :hasLatValue "40.30023118"^^xsd:double .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Dongsi
+
+:Dongsi rdf:type :Beijing_Station ,
+                 owl:NamedIndividual ;
+        
+        rdfs:label "东四" ;
+        
+        :hasLonValue "116.4350122"^^xsd:double ;
+        
+        :hasLatValue "39.93865024"^^xsd:double .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Guanyuan
+
+:Guanyuan rdf:type :Beijing_Station ,
+                   owl:NamedIndividual ;
+          
+          rdfs:label "官园" ;
+          
+          :hasLonValue "116.3693659"^^xsd:double ;
+          
+          :hasLatValue "39.93736379"^^xsd:double .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Gucheng
+
+:Gucheng rdf:type :Beijing_Station ,
+                  owl:NamedIndividual ;
+         
+         rdfs:label "古城" ;
+         
+         :hasLonValue "116.1956398"^^xsd:double ;
+         
+         :hasLatValue "39.91345006"^^xsd:double .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Haidianquwanliu
+
+:Haidianquwanliu rdf:type :Beijing_Station ,
+                          owl:NamedIndividual ;
+                 
+                 rdfs:label "海淀区万柳" ;
+                 
+                 :hasLonValue "116.3056615"^^xsd:double ;
+                 
+                 :hasLatValue "39.9727465"^^xsd:double .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Huairou
+
+:Huairou rdf:type :Beijing_Station ,
+                  owl:NamedIndividual ;
+         
+         rdfs:label "怀柔镇" ;
+         
+         :hasLonValue "116.6469836"^^xsd:double ;
+         
+         :hasLatValue "40.30842471"^^xsd:double ;
+         
+         :hasNameValue "怀柔镇"^^xsd:string .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Nongzhanguan
+
+:Nongzhanguan rdf:type :Beijing_Station ,
+                       owl:NamedIndividual ;
+              
+              rdfs:label "农展馆" ;
+              
+              :hasLonValue "116.470307"^^xsd:double ;
+              
+              :hasLatValue "39.94700908"^^xsd:double .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Shunyixincheng
+
+:Shunyixincheng rdf:type :Beijing_Station ,
+                         owl:NamedIndividual ;
+                
+                rdfs:label "顺义新城" ;
+                
+                :hasLonValue "116.664263"^^xsd:double ;
+                
+                :hasLatValue "40.17700804"^^xsd:double .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Tiantan
+
+:Tiantan rdf:type :Beijing_Station ,
+                  owl:NamedIndividual ;
+         
+         rdfs:label "天坛" ;
+         
+         :hasLonValue "116.417313"^^xsd:double ;
+         
+         :hasLatValue "39.88797708"^^xsd:double .
+
+
+
+###  http://smog.locigraph.cn/ontologies/2016/6/sensor#Wanshouxigong
+
+:Wanshouxigong rdf:type :Beijing_Station ,
+                        owl:NamedIndividual ;
+               
+               rdfs:label "万寿西宫" ;
+               
+               :hasLonValue "116.3747278"^^xsd:double ;
+               
+               :hasLatValue "39.88565298"^^xsd:double .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+

@@ -1,0 +1,1 @@
+/home/wuming/smog_flask/smog/plugins/flot/jquery.flot.categories.js

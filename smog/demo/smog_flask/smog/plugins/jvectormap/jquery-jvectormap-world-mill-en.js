@@ -1,0 +1,1 @@
+/home/wuming/smog_flask/smog/plugins/jvectormap/jquery-jvectormap-world-mill-en.js
